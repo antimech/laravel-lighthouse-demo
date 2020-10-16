@@ -8,6 +8,7 @@ type Query {
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
     hello: String!
+    greet(name: String = "guest"): String
 }
 
 type User {
