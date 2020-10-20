@@ -11,6 +11,14 @@ type Query {
     greet(name: String = "guest"): String
 }
 
+type Mutation {
+    createUser(
+        name: String! @rules(apply: ["max:255"])
+        email: String! @rules(apply: ["email", "max:255", "unique:users"])
+        password: String! @hash @rules(apply: ["min:8"])
+    ): User @create
+}
+
 type User {
     id: ID!
     name: String!
