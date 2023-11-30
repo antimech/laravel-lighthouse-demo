@@ -1,14 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\GraphQL\Queries;
 
-class Hello
+final class Hello
 {
-    /**
-     * @param  null  $_
-     * @param  array<string, mixed>  $args
-     */
-    public function __invoke($_, array $args)
+    public function __invoke(): string
     {
         return 'world!';
     }
